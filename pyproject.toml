@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ofdm-isac-receiver"
+version = "0.1.0"
+description = "Reproducible SIMO OFDM receiver and shared-waveform MUSIC direction finding"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Afifah48"}]
+dependencies = ["numpy>=1.26", "scipy>=1.11", "matplotlib>=3.8", "PyYAML>=6"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+ofdm-isac = "ofdm_isac.evaluation.experiments:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

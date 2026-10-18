@@ -1,0 +1,14 @@
+n_fft: 64
+cp: 16
+n_symbols: 32
+modulation: QPSK
+n_rx: 4
+pilot_stride: 4
+tap_delays: [0, 2, 4]
+tap_powers_db: [0, -4, -8]
+channel: rayleigh
+angle_deg: 23.4
+spacing_wavelengths: 0.5
+cfo: 0.0
+timing_offset: 0
+seed: 48
