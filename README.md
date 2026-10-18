@@ -2,7 +2,6 @@
 
 An executable Python simulation of a **1×4 OFDM communication receiver and MUSIC direction-of-arrival estimator**. Random information bits pass through a time-domain multipath channel, then return through pilot-assisted channel estimation, antenna combining and bit decisions. In the sensing experiment, MUSIC operates on the **same received array samples** used to recover the bits.
 
-Built as a communication-engineering portfolio project by [Afifah48](https://github.com/Afifah48), with reproducible Monte Carlo measurements, explicit energy conventions, unit tests and documented model limitations. This is a baseband simulation; results are not hardware or flight-test measurements.
 
 ![Before and after channel equalization](results/constellation.png)
 
