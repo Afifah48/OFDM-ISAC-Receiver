@@ -7,10 +7,12 @@ If automatic publication is unavailable, install the official [GitHub CLI](https
 ```bash
 gh auth login
 gh repo create Afifah48/ofdm-isac-receiver --public --description "SIMO OFDM receiver with pilot LS, MRC and shared-waveform MUSIC direction finding"
-git remote add origin https://github.com/Afifah48/ofdm-isac-receiver.git
-git push -u origin main
-git push -u origin feature/simo-ofdm-isac
+git -c safe.directory="$PWD" remote add origin https://github.com/Afifah48/ofdm-isac-receiver.git
+git -c safe.directory="$PWD" push -u origin main
+git -c safe.directory="$PWD" push -u origin feature/simo-ofdm-isac
 gh pr create --repo Afifah48/ofdm-isac-receiver --base main --head feature/simo-ofdm-isac --title "Implement SIMO OFDM receiver and shared-waveform MUSIC sensing" --body-file docs/pull-request.md
 ```
 
-`main` is an empty bootstrap so GitHub has a base branch for the pull request. All implementation, results and documentation remain on the feature branch until the PR is approved and merged. If `origin` already exists, use `git remote set-url origin ...` instead of adding it again. If the GitHub repository already exists, skip `gh repo create`; use an empty repository or review its existing history before pushing. Never force-push over unrelated work.
+The command-scoped `safe.directory` option trusts only the current directory for that Git invocation; it accommodates ownership differences after sandbox execution without changing global Git settings. Run these commands from the project root in Bash or PowerShell.
+
+`main` is an empty bootstrap so GitHub has a base branch for the pull request. All implementation, results and documentation remain on the feature branch until the PR is approved and merged. If `origin` already exists, use `git -c safe.directory="$PWD" remote set-url origin ...` instead of adding it again. If the GitHub repository already exists, skip `gh repo create`; use an empty repository or review its existing history before pushing. Never force-push over unrelated work.
